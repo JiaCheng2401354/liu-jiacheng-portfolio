@@ -21,8 +21,9 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--light);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             overflow-x: hidden;
         }
@@ -39,176 +40,448 @@
             top: 0;
             width: 100%;
             background: rgba(15, 23, 42, 0.95);
-            padding: 1rem 0;
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
-        header .logo {
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--light);
+            font-weight: 700;
+            color: var(--accent);
             text-decoration: none;
         }
-        header nav {
-            float: right;
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
-        header nav a {
-            margin-left: 1.5rem;
+
+        .nav-links a {
             color: var(--light);
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Floating Robot Animation */
+        .robot-icon {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Sections */
         section {
-            padding: 6rem 0;
+            padding: 5rem 0;
+            background: var(--light);
         }
+
+        section:nth-child(even) {
+            background: white;
+        }
+
         .section-title {
+            text-align: center;
             font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            width: 100px;
-            height: 4px;
-            background: var(--accent);
-            display: block;
-            margin: 0.5rem auto 0;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--dark);
         }
 
-        /* About */
-        #about .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 2rem;
-            border: 4px solid var(--accent);
-        }
-        #about .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        #about .intro {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        /* Skills */
-        .skills-grid,
-        .projects-grid {
+        /* About Section */
+        .about-content {
             display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-        .skills-grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        }
-        .skill-card,
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            overflow: hidden;
-            padding: 1.5rem;
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-        .skill-icon,
-        .project-image {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .skill-card h3,
-        .project-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-        .project-content p {
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-        .project-tags .tag {
-            display: inline-block;
-            margin-right: 0.5rem;
-            padding: 0.3rem 0.6rem;
-            background: var(--secondary);
-            border-radius: 0.5rem;
-            font-size: 0.8rem;
-        }
-        .skill-card:hover,
-        .project-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Contact */
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .clickable-project {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .clickable-project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .external-link {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: normal;
+        }
+
+        .project-link {
+            margin-top: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .project-link small {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
             display: grid;
             gap: 1rem;
         }
-        .contact-form .form-control {
-            padding: 0.8rem;
-            border: none;
-            border-radius: 0.5rem;
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
-        .contact-form button {
-            padding: 0.8rem;
+
+        .form-control {
+            padding: 1rem;
             border: none;
-            border-radius: 0.5rem;
-            background: var(--accent);
-            color: var(--light);
-            font-weight: bold;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-control:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        textarea.form-control {
+            grid-column: 1 / -1;
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            font-weight: 600;
+            transition: transform 0.3s ease;
         }
-        .contact-form button:hover {
-            background: var(--primary);
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            padding: 2rem 0;
+            background: #000;
+            color: white;
             text-align: center;
-            background: rgba(15, 23, 42, 0.9);
+            padding: 2rem 0;
         }
-        footer .social-links a {
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-            color: var(--light);
-            text-decoration: none;
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <a href="#" class="logo">Liu Jiacheng</a>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
+        <nav>
+            <a href="#" class="logo">🎓 Liu Jiacheng</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Liu Jiacheng</h1>
+            <p>Robotics Systems Engineering Student | CNC Machining Specialist | Future ROS Developer</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+        <div class="robot-icon">🤖</div>
+    </section>
 
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <div class="profile-pic">
-                <img src="your-photo.jpg" alt="Profile Picture">
-            </div>
-            <div class="intro">
-                <p>Hello! I’m Liu Jiacheng, a Robotics Systems Engineering student at Republic Polytechnic with a passion for automation, AI, and precision engineering. Welcome to my portfolio.</p>
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    🎓
+                </div>
+                <div class="about-text">
+                    <h3>Aspiring Robotics Engineer</h3>
+                    <p>Currently pursuing Bachelor of Engineering with Honours in Robotics Systems at Singapore Institute of Technology (Expected 2028). I bring a strong foundation in precision machining, systems engineering, and programming with hands-on experience from ST Engineering and Vopak Singapore.</p>
+                    <p>With a diploma in Engineering Systems & Management from Republic Polytechnic and specialized training in Aerospace Machining Technology, I combine technical expertise with practical problem-solving skills. My experience spans CNC machining, CAD software, PLC programming, and sustainability initiatives.</p>
+                    <p>Passionate about robotics and automation, I'm building expertise in ROS while leveraging my manufacturing background to create innovative solutions for tomorrow's autonomous systems.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <strong>Contact:</strong> 2401354@sit.singaporetech.edu.sg | +65 8158 6166
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -216,22 +489,37 @@
     <!-- Skills Section -->
     <section id="skills">
         <div class="container">
-            <h2 class="section-title fade-in">Key Skills</h2>
+            <h2 class="section-title fade-in">Technical Skills</h2>
             <div class="skills-grid fade-in">
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>CNC Machining</h3>
+                    <p>Expert in precision machining operations, multi-axis CNC programming, and CAD/CAM software development</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Systems Engineering</h3>
+                    <p>Systems design, PLC programming, and engineering systems management with manufacturing focus</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Programming</h3>
+                    <p>C programming, CAD software proficiency, and SYSML for system modeling and design</p>
+                </div>
                 <div class="skill-card">
                     <div class="skill-icon">🤖</div>
                     <h3>Robotics (Learning)</h3>
-                    <p>Developing ROS expertise, automation systems, and robotic control algorithms.</p>
+                    <p>Currently developing ROS expertise, automation systems, and robotic control algorithms</p>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🌱</div>
                     <h3>Sustainability</h3>
-                    <p>Energy management, VOC analysis, renewable energy project optimization.</p>
+                    <p>Energy management, VOC analysis, renewable energy projects, and environmental optimization</p>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🎯</div>
                     <h3>Problem Solving</h3>
-                    <p>Analytical thinking, decision making, adaptability, and effective communication.</p>
+                    <p>Analytical thinking, decision making, adaptability, and effective communication skills</p>
                 </div>
             </div>
         </div>
@@ -242,12 +530,11 @@
         <div class="container">
             <h2 class="section-title fade-in">Featured Projects</h2>
             <div class="projects-grid fade-in">
-
                 <div class="project-card">
                     <div class="project-image">⚙️</div>
                     <div class="project-content">
                         <h3>Precision CNC Machining at ST Engineering</h3>
-                        <p>Operated multi-axis CNC machining processes and optimized performance for aerospace components production.</p>
+                        <p>Operated multi-axis CNC machining centers, developed part-programs using CAD/CAM software, and ensured optimal performance for aerospace components production.</p>
                         <div class="project-tags">
                             <span class="tag">CNC Programming</span>
                             <span class="tag">CAD/CAM</span>
@@ -256,12 +543,11 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="project-card">
                     <div class="project-image">🌱</div>
                     <div class="project-content">
                         <h3>Sustainability Automation at Vopak</h3>
-                        <p>Automated VOC data reporting systems to support solar and battery storage projects across multiple terminals.</p>
+                        <p>Automated VOC data reporting systems, implemented energy-saving initiatives, and supported solar and battery storage projects across multiple terminals.</p>
                         <div class="project-tags">
                             <span class="tag">Energy Management</span>
                             <span class="tag">Data Automation</span>
@@ -270,27 +556,22 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Award card wrapped in a clickable link -->
-                <a
-                  href="https://www.rp.edu.sg/seg/news-and-events/Detail/aug-23---award-winners-for-the-lee-hsien-loong-interactive-digital-media-(idm)-smart-nation-award-2023"
-                  target="_blank"
-                  rel="noopener"
-                  class="project-card"
-                >
-                  <div class="project-image">🏆</div>
-                  <div class="project-content">
-                    <h3>Award-Winning Academic Projects</h3>
-                    <p>Recipient of LEE HSIEN LOONG INTERACTIVE DIGITAL MEDIA SMART NATION AWARD 2023 and multiple Director's Roll of Honour awards for outstanding academic performance.</p>
-                    <div class="project-tags">
-                      <span class="tag">Digital Media</span>
-                      <span class="tag">Smart Nation</span>
-                      <span class="tag">Academic Excellence</span>
-                      <span class="tag">Innovation</span>
+                <div class="project-card clickable-project" onclick="window.open('https://www.rp.edu.sg/seg/news-and-events/Detail/aug-23---award-winners-for-the-lee-hsien-loong-interactive-digital-media-(idm)-smart-nation-award-2023', '_blank')">
+                    <div class="project-image">🏆</div>
+                    <div class="project-content">
+                        <h3>LEE HSIEN LOONG IDM Smart Nation Award 2023 <span class="external-link">↗</span></h3>
+                        <p>Recipient of LEE HSIEN LOONG INTERACTIVE DIGITAL MEDIA SMART NATION AWARD 2023 and multiple Director's Roll of Honour awards for outstanding academic performance.</p>
+                        <div class="project-tags">
+                            <span class="tag">Digital Media</span>
+                            <span class="tag">Smart Nation</span>
+                            <span class="tag">Academic Excellence</span>
+                            <span class="tag">Innovation</span>
+                        </div>
+                        <div class="project-link">
+                            <small>Click to view award details →</small>
+                        </div>
                     </div>
-                  </div>
-                </a>
-
+                </div>
             </div>
         </div>
     </section>
@@ -300,9 +581,7 @@
         <div class="container">
             <h2 class="section-title fade-in">Let's Connect</h2>
             <div style="text-align: center; margin-bottom: 2rem;">
-                <p style="color: rgba(255,255,255,0.8);">
-                    Interested in robotics, automation, or precision engineering? Let’s discuss opportunities!
-                </p>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem;">Interested in robotics, automation, or precision engineering? Let's discuss opportunities!</p>
             </div>
             <form class="contact-form fade-in">
                 <div class="form-group">
@@ -310,8 +589,8 @@
                     <input type="email" class="form-control" placeholder="Your Email" required>
                 </div>
                 <input type="text" class="form-control" placeholder="Subject" required>
-                <textarea class="form-control" rows="5" placeholder="Message" required></textarea>
-                <button type="submit">Send Message</button>
+                <textarea class="form-control" placeholder="Tell me about your project or opportunity..." required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
             </form>
         </div>
     </section>
@@ -325,23 +604,60 @@
                 <a href="#" title="Twitter">🐦</a>
                 <a href="#" title="Email">📧</a>
             </div>
-            <p>&copy; 2025 Liu Jiacheng – Robotics Systems Engineering Student. Built with passion for innovation and precision.</p>
+            <p>&copy; 2025 Liu Jiacheng - Robotics Systems Engineering Student. Built with passion for innovation and precision.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll on nav links
-        document.querySelectorAll('header nav a').forEach(link => {
-            link.addEventListener('click', e => {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        // Change header background on scroll
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(e.target);
+            const name = e.target.querySelector('input[placeholder="Your Name"]').value;
+            
+            // Simple success message
+            alert(`Thank you ${name}! Your message has been received. I'll get back to you soon!`);
+            
+            // Reset form
+            e.target.reset();
+        });
+
+        // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -351,13 +667,14 @@
             }
         });
 
-        // Hover lift effect
+        // Add some interactive hover effects
         document.querySelectorAll('.skill-card, .project-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-8px) scale(1.02)';
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
             });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
     </script>
