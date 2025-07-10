@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+]<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -189,6 +189,14 @@
             justify-content: center;
             font-size: 4rem;
             color: white;
+            overflow: hidden;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
         }
 
         .about-text h3 {
@@ -471,7 +479,7 @@
             <h2 class="section-title fade-in">About Me</h2>
             <div class="about-content fade-in">
                 <div class="about-image">
-                    🎓
+                    <img src="/img/uploaded_image.jpg" alt="Liu Jiacheng" class="profile-photo">
                 </div>
                 <div class="about-text">
                     <h3>Aspiring Robotics Engineer</h3>
@@ -609,6 +617,30 @@
     </footer>
 
     <script>
+        // Load the profile photo
+        async function loadProfilePhoto() {
+            try {
+                const imageData = await window.fs.readFile('uploaded_image.jpg');
+                const blob = new Blob([imageData]);
+                const imageUrl = URL.createObjectURL(blob);
+                
+                const profilePhoto = document.querySelector('.profile-photo');
+                if (profilePhoto) {
+                    profilePhoto.src = imageUrl;
+                }
+            } catch (error) {
+                console.log('Could not load profile photo:', error);
+                // Fallback to graduation cap emoji
+                const aboutImage = document.querySelector('.about-image');
+                if (aboutImage) {
+                    aboutImage.innerHTML = '🎓';
+                }
+            }
+        }
+
+        // Load photo when page loads
+        window.addEventListener('load', loadProfilePhoto);
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
