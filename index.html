@@ -1,9 +1,34 @@
-]<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROS Developer Portfolio</title>
+    <title>Liu Jiacheng - ROS Developer & Robotics Engineer | Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Liu Jiacheng - Robotics Systems Engineering Student & aspiring ROS Developer. Expert in CNC machining, precision engineering, and robotics automation. Based in Singapore.">
+    <meta name="keywords" content="ROS Developer, Robotics Engineer, CNC Machining, Robotics Systems, Singapore Institute of Technology, Precision Engineering, Automation, Robot Operating System, C Programming, CAD CAM">
+    <meta name="author" content="Liu Jiacheng">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Liu Jiacheng - ROS Developer & Robotics Engineer">
+    <meta property="og:description" content="Robotics Systems Engineering Student specializing in ROS development, CNC machining, and automation systems. Building the future of robotics.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://liu-jiacheng-portfolio.com">
+    <meta property="og:site_name" content="Liu Jiacheng Portfolio">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Liu Jiacheng - ROS Developer & Robotics Engineer">
+    <meta name="twitter:description" content="Aspiring ROS Developer with expertise in CNC machining and robotics systems. Singapore Institute of Technology student.">
+    
+    <!-- Additional Professional Meta Tags -->
+    <meta name="geo.region" content="SG">
+    <meta name="geo.placename" content="Singapore">
+    <meta name="language" content="English">
+    <meta name="rating" content="General">
+    
     <style>
         * {
             margin: 0;
@@ -327,70 +352,6 @@
             font-size: 0.8rem;
         }
 
-        /* Contact Section */
-        .contact {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: grid;
-            gap: 1rem;
-        }
-
-        .form-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-control {
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .form-control:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        textarea.form-control {
-            grid-column: 1 / -1;
-            height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            grid-column: 1 / -1;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: transform 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
-
         /* Footer */
         footer {
             background: #000;
@@ -430,10 +391,6 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-
-            .form-group {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* Scroll Animations */
@@ -458,7 +415,6 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -488,6 +444,10 @@
                     <p>Passionate about robotics and automation, I'm building expertise in ROS while leveraging my manufacturing background to create innovative solutions for tomorrow's autonomous systems.</p>
                     <div style="margin-top: 1.5rem;">
                         <strong>Contact:</strong> 2401354@sit.singaporetech.edu.sg | +65 8158 6166
+                        <br><br>
+                        <a href="https://www.linkedin.com/in/liu-jiacheng-sit/" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); text-decoration: none; font-weight: 500;">
+                            💼 Connect on LinkedIn
+                        </a>
                     </div>
                 </div>
             </div>
@@ -505,14 +465,9 @@
                     <p>Expert in precision machining operations, multi-axis CNC programming, and CAD/CAM software development</p>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3>Systems Engineering</h3>
-                    <p>Systems design, PLC programming, and engineering systems management with manufacturing focus</p>
-                </div>
-                <div class="skill-card">
                     <div class="skill-icon">💻</div>
                     <h3>Programming</h3>
-                    <p>C programming, CAD software proficiency, and SYSML for system modeling and design</p>
+                    <p>C programming and CAD software proficiency for technical design and development</p>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🤖</div>
@@ -584,31 +539,12 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Let's Connect</h2>
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem;">Interested in robotics, automation, or precision engineering? Let's discuss opportunities!</p>
-            </div>
-            <form class="contact-form fade-in">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
-                    <input type="email" class="form-control" placeholder="Your Email" required>
-                </div>
-                <input type="text" class="form-control" placeholder="Subject" required>
-                <textarea class="form-control" placeholder="Tell me about your project or opportunity..." required></textarea>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="social-links">
                 <a href="#" title="GitHub">⚡</a>
-                <a href="#" title="LinkedIn">💼</a>
+                <a href="https://www.linkedin.com/in/liu-jiacheng-sit/" target="_blank" title="LinkedIn">💼</a>
                 <a href="#" title="Twitter">🐦</a>
                 <a href="#" title="Email">📧</a>
             </div>
@@ -672,21 +608,6 @@
         // Observe all fade-in elements
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
-        });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(e.target);
-            const name = e.target.querySelector('input[placeholder="Your Name"]').value;
-            
-            // Simple success message
-            alert(`Thank you ${name}! Your message has been received. I'll get back to you soon!`);
-            
-            // Reset form
-            e.target.reset();
         });
 
         // Header scroll effect
